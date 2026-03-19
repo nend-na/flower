@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Concierge | Reyto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <style>
+        body { background: #fff; font-family: 'Montserrat'; text-align: center; padding: 100px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 800px; margin: 50px auto; text-align: left; }
+        h1 { font-weight: 200; letter-spacing: 10px; text-transform: uppercase; }
+        .card { padding: 30px; border: 1px solid #f0f0f0; }
+        .card h3 { color: #c5a059; font-size: 10px; letter-spacing: 3px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Concierge</h1>
+    <div class="grid">
+        <div class="card"><h3>Email</h3><p>atelier@reyto.com</p></div>
+        <div class="card"><h3>Phone</h3><p>+91 98765 43210</p></div>
+    </div>
+    <a href="index.html" style="color:#000; font-size:10px; letter-spacing:2px; text-decoration:none; border-bottom:1px solid #c5a059">BACK HOME</a>
+</body>
+</html>

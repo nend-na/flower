@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Reservation | Reyto Florist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        body { background: #fdfcf9; font-family: 'Montserrat'; padding: 100px 10%; }
+        .container { display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; background: #fff; padding: 50px; border: 1px solid #eee; }
+        input, textarea { width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid #eee; margin-bottom: 20px; outline: none; }
+        .summary { background: #fafafa; padding: 30px; }
+        .btn { width: 100%; padding: 20px; background: #000; color: #fff; border: none; cursor: pointer; letter-spacing: 3px; font-size: 10px; }
+        #warn { display: none; color: #c5a059; font-size: 10px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container" id="box">
+        <div>
+            <h2>Reservation</h2>
+            <p id="warn">Identification Required: <a href="auth.html">Login First</a></p>
+            <form id="book">
+                <input type="text" id="fl" readonly style="color:#c5a059; font-weight:bold">
+                <input type="text" id="pin" placeholder="PINCODE" maxlength="6" oninput="calc()" required>
+                <textarea placeholder="ADDRESS" required></textarea>
+                <button type="submit" class="btn">Confirm Request</button>
+            </form>
+        </div>
+        <div class="summary">
+            <h3>Summary</h3>
+            <p>Base: <span id="bp">₹0</span></p>
+            <p>Shipping: <span id="sf">₹0</span></p>
+            <hr><br>
+            <p><strong>Total: <span id="gt">₹0</span></strong></p>
+            <p style="font-size: 10px; color: #aaa; margin-top: 20px;">Estimated Delivery: <span id="ed">Enter pincode</span></p>
+        </div>
+    </div>
+    <script>
+        let base = parseInt(localStorage.getItem('selectedPrice') || 0);
+        document.getElementById('fl').value = localStorage.getItem('selectedFlower');
+        document.getElementById('bp').innerText = "₹" + base;
+
+        function calc() {
+            const p = document.getElementById('pin').value;
+            if(p.length === 6) {
+                let s = p.startsWith('11') ? 100 : 250;
+                document.getElementById('sf').innerText = "₹" + s;
+                document.getElementById('gt').innerText = "₹" + (base + s);
+                document.getElementById('ed').innerText = "3-4 Business Days";
+            }
+        }
+
+        document.getElementById('book').onsubmit = (e) => {
+            e.preventDefault();
+            if(localStorage.getItem('isLoggedIn') !== 'true') {
+                document.getElementById('warn').style.display = 'block';
+                return;
+            }
+            document.getElementById('box').innerHTML = "<h2>Confirmed. We will contact you shortly.</h2><br><a href='index.html'>Home</a>";
+        };
+    </script>
+</body>
+</html>

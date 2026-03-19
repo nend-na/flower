@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Bespoke | Reyto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <style>
+        body { background: #0a0a0a; color: #fff; font-family: 'Montserrat'; height: 100vh; display: flex; align-items: center; padding: 0 10%; overflow: hidden; margin: 0; }
+        .atelier-img { position: absolute; right: 0; top: 0; width: 50%; height: 100%; background: url('images/customised.jpg') center/cover; opacity: 0.6; }
+        .content { max-width: 550px; position: relative; z-index: 2; }
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: 65px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; line-height: 1.1; }
+        .btn { display: inline-block; padding: 20px 40px; border: 1px solid #fff; color: #fff; text-decoration: none; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; margin-top: 35px; transition: 0.5s; cursor: pointer; }
+        .btn:hover { background: #fff; color: #000; letter-spacing: 6px; }
+    </style>
+</head>
+<body>
+    <div class="atelier-img"></div>
+    <div class="content">
+        <p style="color: #c5a059; letter-spacing: 7px; font-size: 9px; margin-bottom: 20px;">PRIVATE COMMISSION</p>
+        <h1>Bespoke Atelier</h1>
+        <p style="color: #aaa; line-height: 2; font-weight: 200; font-size: 15px;">Experience the pinnacle of floral artistry. Our master designers collaborate with you to source rare stems and craft arrangements that transcend traditional floristry.</p>
+        <a href="booking.html" class="btn" onclick="localStorage.setItem('orderType', 'bespoke')">Begin Consultation</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Reyto Florist</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-pink: #f8e1e7;
+            --dark-rose: #5a3e46;
+            --accent-rose: #c06c84;
+            --soft-white: #faf7f2;
+            --gold: #c5a059;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Lato', sans-serif;
+            background-color: var(--soft-white);
+            color: var(--dark-rose);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* MAIN CONTAINER */
+        .contact-container {
+            display: flex;
+            width: 90%;
+            max-width: 1000px;
+            height: 600px;
+            background: white;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* LEFT SIDE: IMAGE */
+        .contact-image {
+            flex: 1;
+            background: url('images/mixed.jpg') center/cover no-repeat;
+            position: relative;
+        }
+        .contact-image::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(90, 62, 70, 0.2);
+        }
+
+        /* RIGHT SIDE: CONTENT */
+        .contact-content {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 42px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+        }
+
+        .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #999;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            font-size: 18px;
+            font-weight: 400;
+            text-decoration: none;
+            color: var(--dark-rose);
+            transition: color 0.3s;
+        }
+
+        .value:hover {
+            color: var(--accent-rose);
+        }
+
+        .back-home {
+            margin-top: 40px;
+            text-decoration: none;
+            color: var(--dark-rose);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            color: var(--gold);
+            transform: translateX(-5px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                height: auto;
+                margin: 20px;
+            }
+            .contact-image {
+                height: 250px;
+            }
+            .contact-content {
+                padding: 40px 30px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contact-container">
+        <div class="contact-image"></div>
+
+        <div class="contact-content">
+            <h1>Contact</h1>
+            <div class="subtitle">Get in Touch with our Boutique</div>
+
+            <div class="contact-item">
+                <span class="label">Inquiries</span>
+                <a href="mailto:ReytoFlorist111@gmail.com" class="value">ReytoFlorist111@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+                <span class="label">Follow Our Journey</span>
+                <a href="https://instagram.com/ReytoFlorist_22" target="_blank" class="value">@ReytoFlorist_22</a>
+            </div>
+
+            <div class="contact-item">
+                <span class="label">Location</span>
+                <span class="value">Bangalore, India</span>
+            </div>
+
+            <a href="index.html" class="back-home">
+                <span style="font-size: 20px; margin-right: 10px;">&#8592;</span> Return to Home
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

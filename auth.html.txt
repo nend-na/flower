@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Access | Reyto Florist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        body { background: #fdfcf9; font-family: 'Montserrat'; height: 100vh; display: flex; justify-content: center; align-items: center; margin:0; }
+        .card { background: white; width: 380px; padding: 60px 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0f0f0; }
+        h2 { font-weight: 200; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 40px; }
+        input { width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid #eee; margin-bottom: 25px; outline: none; }
+        button { width: 100%; padding: 20px; background: #000; color: #fff; border: none; letter-spacing: 4px; font-size: 10px; cursor: pointer; }
+        .toggle { margin-top: 25px; font-size: 10px; color: #888; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 id="title">Login</h2>
+        <form id="f">
+            <div id="extra" style="display:none"><input type="text" placeholder="FULL NAME"></div>
+            <input type="email" id="e" placeholder="EMAIL ADDRESS" required>
+            <input type="password" placeholder="PASSWORD" required>
+            <button type="submit" id="btn">Enter Atelier</button>
+        </form>
+        <p class="toggle" onclick="toggle()">New to Reyto? Create Account</p>
+        <p class="toggle" style="font-size: 8px; margin-top: 10px;" onclick="alert('Reset link sent!')">Forgot Password?</p>
+    </div>
+    <script>
+        let mode = 'login';
+        function toggle() {
+            mode = mode === 'login' ? 'signup' : 'login';
+            document.getElementById('title').innerText = mode === 'login' ? 'Login' : 'Create Account';
+            document.getElementById('extra').style.display = mode === 'login' ? 'none' : 'block';
+            document.querySelector('.toggle').innerText = mode === 'login' ? 'New to Reyto? Create Account' : 'Already a member? Login';
+        }
+        document.getElementById('f').onsubmit = (e) => {
+            e.preventDefault();
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userEmail', document.getElementById('e').value);
+            window.location.href = 'index.html';
+        };
+    </script>
+</body>
+</html>

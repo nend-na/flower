@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reyto Florist | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #c5a059; --bg: #ffffff; --text: #1a1a1a; --soft-cream: #fdfcf9; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+        
+        /* Navigation */
+        nav { padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(255,255,255,0.8); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05); transition: 0.4s; }
+        nav.scrolled { padding: 15px 50px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .logo { font-weight: 200; letter-spacing: 6px; text-transform: uppercase; text-decoration: none; color: var(--text); font-size: 13px; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-link { text-decoration: none; color: var(--text); font-size: 9px; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Hero */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/yourflower.png') center/cover no-repeat fixed; color: white; text-align: center; }
+        .hero h1 { font-family: 'Cormorant Garamond'; font-size: 70px; font-weight: 300; font-style: italic; margin-bottom: 20px; }
+        .btn-cta { padding: 18px 45px; border: 1px solid white; color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 5px; font-size: 10px; transition: 0.4s; }
+        .btn-cta:hover { background: white; color: black; }
+
+        /* Archive Section */
+        .section { padding: 100px 10%; text-align: center; }
+        #search { margin-bottom: 50px; border: none; border-bottom: 1px solid #eee; width: 250px; padding: 10px; font-family: 'Montserrat'; text-align: center; outline: none; text-transform: uppercase; font-size: 10px; letter-spacing: 2px; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .card { cursor: pointer; opacity: 0; transform: translateY(20px); transition: 0.6s; }
+        .card.show { opacity: 1; transform: translateY(0); }
+        .card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; margin-bottom: 15px; border: 1px solid #f9f9f9; transition: 0.5s; }
+        .card:hover img { border-color: var(--gold); transform: scale(1.02); }
+        h3 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
+
+        /* --- OUR STORY SECTION (PRO MAX UPGRADE) --- */
+        .story-section { background: var(--soft-cream); padding: 120px 15%; display: flex; align-items: center; gap: 80px; border-top: 1px solid #f0f0f0; }
+        .story-image { flex: 1; position: relative; }
+        .story-image img { width: 100%; height: 500px; object-fit: cover; border-radius: 2px; box-shadow: 20px 20px 0px var(--gold); }
+        .story-content { flex: 1.2; text-align: left; }
+        .story-content p.label { font-size: 9px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+        .story-content h2 { font-family: 'Cormorant Garamond'; font-size: 42px; font-weight: 300; font-style: italic; margin-bottom: 30px; line-height: 1.2; }
+        .story-content p.narrative { font-size: 14px; color: #555; line-height: 1.8; margin-bottom: 20px; font-weight: 300; }
+        .signature { font-family: 'Cormorant Garamond'; font-size: 24px; font-style: italic; margin-top: 40px; color: var(--text); }
+
+        @media (max-width: 900px) { 
+            .story-section { flex-direction: column; padding: 80px 10%; text-align: center; } 
+            .story-content { text-align: center; }
+            .story-image img { box-shadow: 10px 10px 0px var(--gold); height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+    <a href="index.html" class="logo">Reyto Florist</a>
+    <div class="nav-links">
+        <a href="bespoke.html" class="nav-link">Bespoke</a>
+        <a href="feedback.html" class="nav-link">Feedback</a>
+        <a href="concierge.html" class="nav-link">Concierge</a>
+        <a href="auth.html" id="authBtn" class="nav-link" style="color:var(--gold)">Login</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1 id="greeting">Artisan Floristry</h1>
+    <a href="booking.html" class="btn-cta">Request Reservation</a>
+</section>
+
+<section class="section">
+    <input type="text" id="search" placeholder="Search Collection...">
+    <div class="grid" id="grid">
+        <div class="card" onclick="sel('Midnight Rose', 749)"><img src="images/rose.jpg"><h3>Midnight Rose</h3></div>
+        <div class="card" onclick="sel('Royal Lily', 5757)"><img src="images/lilly.jpg"><h3>Royal Lily</h3></div>
+        <div class="card" onclick="sel('White Tulips', 49000)"><img src="images/tulips.jpg"><h3>White Tulips</h3></div>
+        <div class="card" onclick="sel('Kashmir Lavender', 1799)"><img src="images/lav.jpg"><h3>Kashmir Lavender</h3></div>
+        <div class="card" onclick="sel('Celestial Mixed', 2999)"><img src="images/mixed.jpg"><h3>Celestial Mixed</h3></div>
+        <div class="card" onclick="sel('Cream Serenity', 3499)"><img src="images/cream.jpg"><h3>Cream Serenity</h3></div>
+    </div>
+</section>
+
+<section class="story-section">
+    <div class="story-image">
+        <img src="images/flower.png" alt="Our Atelier">
+    </div>
+    <div class="story-content">
+        <p class="label">Behind the Petals</p>
+        <h2>A Love Letter to Nature</h2>
+        <p class="narrative">
+            Reyto Florist didn’t start in a studio, it started in my mother’s garden, where I learned that flowers aren't just decorations they are a language of love.
+        </p>
+        <p class="narrative">
+            Every stem we choose at our Atelier is hand selected, not just for its beauty, but for its soul. We believe in the quiet magic of a blooming rose and the way a simple bouquet can say the things words often fail to capture.
+        </p>
+        <p class="narrative">
+            When you hold a Reyto arrangement, you’re holding a piece of our heart. Welcome to our botanical story.
+        </p>
+        <p class="signature">— From the heart of our Lead Florist</p>
+    </div>
+</section>
+
+<footer style="padding: 50px; text-align: center; font-size: 9px; letter-spacing: 3px; border-top: 1px solid #f5f5f5; color: #aaa;">
+    &copy; 2024 REYTO FLORIST ATELIER. ALL RIGHTS RESERVED.
+</footer>
+
+<script>
+    window.onscroll = () => { document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50); };
+    
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((c, i) => setTimeout(() => c.classList.add('show'), i * 150));
+    
+    document.getElementById('search').oninput = (e) => {
+        const val = e.target.value.toLowerCase();
+        cards.forEach(c => c.style.display = c.innerText.toLowerCase().includes(val) ? 'block' : 'none');
+    };
+
+    function sel(n, p) {
+        localStorage.setItem('selectedFlower', n);
+        localStorage.setItem('selectedPrice', p);
+        window.location.href = 'booking.html';
+    }
+
+    window.onload = () => {
+        if(localStorage.getItem('isLoggedIn') === 'true') {
+            const user = localStorage.getItem('userEmail').split('@')[0];
+            document.getElementById('authBtn').innerText = "LOGOUT";
+            document.getElementById('greeting').innerText = "Welcome, " + user.toUpperCase();
+            document.getElementById('authBtn').onclick = () => { localStorage.clear(); location.reload(); };
+        }
+    };
+</script>
+</body>
+</html>
